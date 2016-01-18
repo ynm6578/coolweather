@@ -60,7 +60,7 @@ public class CoolWeatherDB {
      */
     public List<Province> loadProvinces(){
         List<Province> list=new ArrayList<Province>();
-        Cursor cursor=db.query("Procince",null,null,null,null,null,null);
+        Cursor cursor=db.query("Province",null,null,null,null,null,null);
         if (cursor.moveToFirst()){
             do {
                 Province province=new Province();
@@ -133,6 +133,7 @@ public class CoolWeatherDB {
                 county.setCountyName(cursor.getString(cursor.getColumnIndex("county_name")));
                 county.setCountyCode(cursor.getString(cursor.getColumnIndex("county_code")));
                 county.setCityId(cityId);
+                list.add(county);
             }while (cursor.moveToNext());
         }
         if (cursor!=null){
